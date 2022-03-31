@@ -1,0 +1,76 @@
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery</title> 
+<script src="jquery.js"></script> 
+<script> 
+//charger le DOM
+$(document).ready(function(){ 
+          //masquer les sous-menus
+          $("div.menu_point").hide();
+          // actionner de déroulement du bas 
+          $("p.menu_chapitre").click(function(){ 
+                  //À partir de cet élément (this), le script demande de rechercher l’élément <div> qui le suit et qui a la classe menu_point puis on l'appliquer l'effet de clissement vers les bas 
+                  //siblings, demandé à jQuery de sélectionner les frères immédiats div de clase menu_point puis appliquer le clissement vers les hauts
+                   $(this).next("div.menu_point").slideDown(300) 
+                   .siblings("div.menu_point").slideUp("slow"); 
+          //Fin de cette fonction relative au clic d’un paragraphe.
+          }); 
+//Fin du ready et fin de script.
+}); 
+</script> 
+<style> 
+body { 
+          margin: 10px; 
+          font: 0.8em Arial, Helvetica, sans-serif; 
+} 
+.menu { 
+          width: 150px; 
+} 
+.menu_chapitre { 
+          padding: 5px; 
+          cursor: pointer; 
+          position: relative; 
+          margin: 0 0 3px 0; 
+          font-weight: bold; 
+          border: 1px solid black; 
+} 
+.menu_point a { 
+          display: block; 
+          color: black; 
+          background-color: white; 
+          padding-left: 30px; 
+          text-decoration: none; 
+} 
+.menu_point a:hover { 
+          color: black; 
+          text-decoration: underline; 
+} 
+</style> 
+</head> 
+<body> 
+<div>  
+          <div class="menu">  
+                   <p class="menu_chapitre">Chapitre 1</p> 
+                   <div class="menu_point"> 
+                            <a href="#">Point 1</a> 
+                            <a href="#">Point 2</a> 
+                            <a href="#">Point 3</a> 
+                   </div> 
+                   <p class="menu_chapitre">Chapitre 2</p> 
+                   <div class="menu_point"> 
+                            <a href="#">Point 1</a> 
+                            <a href="#">Point 2</a> 
+                            <a href="#">Point 3</a> 
+                   </div> 
+                   <p class="menu_chapitre">Chapitre 3</p> 
+                   <div class="menu_point"> 
+                            <a href="#">Point 1</a> 
+                            <a href="#">Point 2</a> 
+                            <a href="#">Point 3</a> 
+                   </div> 
+          </div>  
+</div> 
+</body> 
+</html>
